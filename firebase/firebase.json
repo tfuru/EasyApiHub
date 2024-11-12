@@ -22,6 +22,20 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ]
+    ],
+    "rewrites": [
+      {
+        "source": "/verify",
+        "function": "api"
+      },
+      {
+        "source": "/login",
+        "function": "api"
+      },
+      {
+        "source": "/api",
+        "function": "api"
+      }      
+    ]    
   }
 }
