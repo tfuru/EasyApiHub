@@ -16,15 +16,18 @@ Google アカウントさえあれば cluster の外部通信のためのAPIサ�
 ## Firebase console の設定
 1. Google アカウントで Firebase console 画面にログイン
 https://console.firebase.google.com/  
+
 2. プロジェクトを作成   
 プロジェクト名 EasyApiHub  
 <img src="./doc/doc1.png" width="300px">
 <img src="./doc/doc2.png" width="300px">
+
 3. プロジェクトの設定 プラン変更 左メニュー下の `アップグレード` をクリック  
 - 従量制 Blaze プラン を選択  
 - JPY の予算額 1000円 で設定  
 <img src="./doc/doc3.png" width="300px">
 <img src="./doc/doc4.png" width="300px">
+
 4. Firestore の設定  
 左メニュー 構築 > Firestore データベース > 作成 を選択  
 - ロケーションを asia-northeast1 に設定  
@@ -32,13 +35,13 @@ https://console.firebase.google.com/
 <img src="./doc/doc6.png" width="300px">
 <img src="./doc/doc7.png" width="300px">
 
-6. Authentication の設定
+5. Authentication の設定
 左メニュー 構築 > Authentication > 始める を選択  
 - 追加のプロバイダ で Google を有効にする
 - サポートメールを設定する  
 <img src="./doc/doc8.png" width="300px">
 
-5. firebaseConfig の 取得
+6. firebaseConfig の 取得
 左メニュー プロジェクトの設定 > 全般 > マイアプリ > アプリの追加 > Web を選択  
 - アプリのニックネームを入力 WebApp  
 - Firebase Hosting は無効にする  
@@ -58,6 +61,20 @@ const firebaseConfig = {
 };
 
 export default firebaseConfig;
+```
+
+7. .env の設定
+`firebase/functions/.env.example` を コピーして `firebase/functions/.env` 作成する  
+内容を編集する   
+`BASIC_AUTH_USER` と `BASIC_AUTH_PASS` を 適当な文字列に変更する
+
+```
+TZ=Asia/Tokyo
+
+# verify 登録時の ベーシック認証 情報
+BASIC_AUTH_USER=admin
+BASIC_AUTH_PASS=xxxxx
+
 ```
 
 ## Firebase CLI のインストール
