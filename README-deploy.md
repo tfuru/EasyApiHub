@@ -20,12 +20,17 @@ https://console.firebase.google.com/
 プロジェクト名 EasyApiHub  
 <img src="./doc/doc1.png" width="300px">
 <img src="./doc/doc2.png" width="300px">
-3. プロジェクトの設定 プラン変更 右メニュー下の `アップグレード` をクリック  
+3. プロジェクトの設定 プラン変更 左メニュー下の `アップグレード` をクリック  
 - 従量制 Blaze プラン を選択  
 - JPY の予算額 1000円 で設定  
 <img src="./doc/doc3.png" width="300px">
 <img src="./doc/doc4.png" width="300px">
-
+4. Firestore の設定  
+左メニュー 構築 > Firestore データベース > 作成 を選択  
+- ロケーションを asia-northeast1 に設定  
+- モードを本番モードに設定  
+<img src="./doc/doc6.png" width="300px">
+<img src="./doc/doc7.png" width="300px">
 
 ## Firebase CLI のインストール
 ここからは ターミナルでの操作です。 例は mac の場合となります。  
