@@ -32,6 +32,34 @@ https://console.firebase.google.com/
 <img src="./doc/doc6.png" width="300px">
 <img src="./doc/doc7.png" width="300px">
 
+6. Authentication の設定
+左メニュー 構築 > Authentication > 始める を選択  
+- 追加のプロバイダ で Google を有効にする
+- サポートメールを設定する  
+<img src="./doc/doc8.png" width="300px">
+
+5. firebaseConfig の 取得
+左メニュー プロジェクトの設定 > 全般 > マイアプリ > アプリの追加 > Web を選択  
+- アプリのニックネームを入力 WebApp  
+- Firebase Hosting は無効にする  
+- Firebase SDK の設定をコピーする  
+- SDK の設定と構成の `firebaseConfig` の値を `firebase/public/firebaseConfig.js` を作成して内容を貼り付ける
+```
+// firebaseConfig の 取得
+// firebase console > project settings > web app > config
+
+const firebaseConfig = {
+  apiKey: "xxxxx",
+  authDomain: "xxxxx.firebaseapp.com",
+  projectId: "xxxx",
+  storageBucket: "xxxxx.firebasestorage.app",
+  messagingSenderId: "xxxxxx",
+  appId: "1:xxxx:web:xxxxxx"
+};
+
+export default firebaseConfig;
+```
+
 ## Firebase CLI のインストール
 ここからは ターミナルでの操作です。 例は mac の場合となります。  
 ターミナルを起動してください。   
