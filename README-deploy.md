@@ -57,9 +57,6 @@ npm install -g firebase-tools
 firebase login
 # firebase login:list
 # firebase login:use xxxxx@gmail.com
-
-# プロジェクト一覧の確認
-firebase projects:list
 ```
 
 ## プロジェクトのデプロイ
@@ -67,7 +64,11 @@ Github のプロジェクをダウンロードして firebase にデプロイ(�
 ```:bash
 # プロジェクトのダウンロード
 git clone git@github.com:tfuru/EasyApiHub.git
-cd EasyApiHub
+cd EasyApiHub/firebase
+
+# プロジェクト一覧の確認と選択
+firebase projects:list
+firebase use easyapihub
 
 # プロジェクトのデプロイ
 cd firebase
