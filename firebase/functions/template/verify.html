@@ -1,0 +1,126 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
+    <title>EasyApiHub</title>
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css" >    
+    <script>
+      <!--
+      const resetRanking = (e) => {
+        const identifier = document.getElementById('identifier').value;
+        const verify = document.getElementById('verify').value;
+        const request = JSON.stringify({
+            "identifier": `${identifier}`,
+            "verify": `${verify}`
+          });
+
+        const username = "admin-i4wkyvmb";
+        const password = "q359g7eu";
+
+        const url = '/verify';
+        fetch(url, 
+          { 
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Basic ' + btoa(username + ':' + password)
+            }, 
+            body: request
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.verify !== '') {
+              window.alert('verifyを登録しました');
+            } else {
+              window.alert('verify登録に失敗しました');
+            }
+          })
+          .catch(error => {
+            console.error(error);
+            window.alert('verify登録に失敗しました');
+          });
+      };
+      -->
+    </script>
+  </head>
+  <body>
+    <script type="module">
+      import { authStateChanged } from "/firebase.js";      
+      document.addEventListener("DOMContentLoaded", (e) => {
+        authStateChanged(()=>{
+            // ログイン成功
+          }, ()=>{
+            // ログイン失敗
+            location.href = '/login';
+          });
+      });
+    </script> 
+    <div class="content">
+
+      <div class="columns">
+        <div class="column is-three-fifths is-offset-one-fifth">
+          <h1 class="title is-1">EasyApiHub</h1>
+          <a href="/login">戻る</a>
+        </div>
+      </div>
+      
+      <div class="columns">
+        <div class="column is-three-fifths is-offset-one-fifth">
+
+          <div class="field is-horizontal">
+            <div class="field-label- is-medium">
+              <label class="label"><h2>verify 登録</h2></label>
+            </div>
+          </div>
+          
+          <div class="field is-horizontal">
+            <div class="field-label is-medium">
+              <label class="label">identifier</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <p class="control">
+                  <input id="identifier" class="input is-medium" type="text" placeholder="identifier" value="world-xxxxxxx">
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-medium">
+              <label class="label">verify</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <p class="control">
+                  <input id="verify" class="input is-medium" type="text" placeholder="verify" value="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">
+                <!--
+                <input class="button is-medium is-primary" type="button" value="Reset" onclick="resetRanking()">
+                -->
+              </label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <p class="control">
+                  <input class="button is-medium is-primary" type="button" value="登録" onclick="resetRanking()">
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

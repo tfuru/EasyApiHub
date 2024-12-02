@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EasyApiHub</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css" >
+    <style>
+      #menu_container {
+        display: none;
+      }
+    </style>
+    <script type="module">
+      import { clickLogin, clickLogout, authStateChanged, clickVerify, clickResetranking } from "/firebase.js";
+      
+      document.addEventListener("DOMContentLoaded", (e) => {
+        authStateChanged(()=>{
+            // ログイン成功
+            const loginContainer = document.getElementById('login_container');
+            if (loginContainer) {
+              loginContainer.style.display = 'none';
+            }
+
+            const menuContainer = document.getElementById('menu_container');
+            if (menuContainer) {
+              menuContainer.style.display = 'block';
+            }
+          }, ()=>{
+            // ログイン失敗
+            const loginContainer = document.getElementById('login_container');
+            if (loginContainer) {
+              loginContainer.style.display = 'block';
+            }
+
+            const menuContainer = document.getElementById('menu_container');
+            if (menuContainer) {
+              menuContainer.style.display = 'none';
+            }            
+          });
+      });
+
+      const login = document.getElementById("login");
+      login.addEventListener("click", (e) => {
+          clickLogin();
+      });
+      
+      const logout = document.getElementById("logout");
+      logout.addEventListener("click", (e) => {
+        clickLogout();
+      });
+
+      const verify = document.getElementById("verify");
+      verify.addEventListener("click", (e) => {
+          clickVerify();
+      });
+      const resetranking = document.getElementById("resetranking");
+      resetranking.addEventListener("click", (e) => {
+          clickResetranking();
+      });
+    </script>
+  </head>
+  <body>
+    <div class="columns">
+      <div class="column is-three-fifths is-offset-one-fifth">
+        <h1 class="title is-1">EasyApiHub</h1>
+      </div>
+    </div>
+
+    <div class="content">
+      <div id="login_container">
+        <div class="columns">
+          <div class="column is-three-fifths is-offset-one-fifth">
+            <button class="button is-primary" id="login">ログイン</button>
+          </div>
+        </div>
+      </div>
+      <div id="menu_container">        
+        <div class="columns">
+          <div class="column is-three-fifths is-offset-one-fifth">
+            <button class="button" id="logout">ログアウト</button>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column is-three-fifths is-offset-one-fifth">
+            <button class="button is-info" id="verify">verify 登録</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
